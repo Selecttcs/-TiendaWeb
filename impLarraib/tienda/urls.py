@@ -13,6 +13,7 @@ urlpatterns = [
 
     path('adminExtranjeria', views.adminExtranjeria, name='adminExtranjeria'), 
     path('agregarOf',views.agregarOf,name='agregarOf'),
+    path('deleteOf/<str:pk>',views.deleteOf, name= "deleteOf"),
     path('pago',views.pago, name='pago'),
     path('modificar',views.modificar, name='modificar')
 ]

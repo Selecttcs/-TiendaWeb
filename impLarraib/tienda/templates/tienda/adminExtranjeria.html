@@ -71,14 +71,16 @@
                   <b><td>Contacto vendedor</td></b>
                   <b><td>Cantidad de productos</td></b>+
                   <b><td>Costo de importación</td></b>
+                  <b><td>ELIMINAR</td></b>
               </tr>
               {% for o in ofertas%}
               <tr>
                 <b><td>{{o.id_oferta}}</td></b>
                 <b><td>{{o.nombre}}</td></b>
                 <b><td>{{o.contacto}}</td></b>
-                <b><td>{{o.cantidad}}</td></b>+
+                <b><td>{{o.cantidad}}</td></b>
                 <b><td>${{o.costo }}</td></b>
+                <b><td><button type ="button" class="btn btn-danger"><a href="{% url 'deleteOf' pk=o.id_oferta %}">ELIMINAR</a></button></a></td></b>
             </tr>
             {% endfor %}
           </table>

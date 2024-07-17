@@ -108,6 +108,21 @@ def agregarOf(request):
     context= {'mensaje': "Agregado con exito", 'ofertas' : ofertas}
     return render(request,'tienda/adminBodega.html',context)
 
+def deleteOf(request, pk):
+    context={}
+    try:
+        oferta = Oferta.objects.get(id_oferta=pk)
+        oferta.delete()
+        mensaje= "Datos eliminados"
+        ofertas = Oferta.objects.all()
+        context={'ofertas':ofertas, 'mensaje': mensaje}
+        return render(request, 'tienda/adminExtranjeria.html', context)
+    except:
+        mensaje= "Id no encontrado"
+        ofertas= Producto.objects.all()
+        context={'ofertas':ofertas, 'mensaje': mensaje}
+        return render(request, 'tienda/adminExtranjeria.html', context)
+
 def pago(request):
     context = {}
     return render(request, 'tienda/pago.html',context)
