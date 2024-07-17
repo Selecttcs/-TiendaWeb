@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Ventas</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../../static/tienda/css/styles.css" rel="stylesheet" />
+        <script>
+          function Estado(){
+        
+            Swal.fire({
+            
+            text: "Productos a despachar: Lentes, Notebook lenovo 15, SmartTV",
+            text: "Productos a despachar: Lentes, Notebook lenovo 15, SmartTV",
+            icon: "Success"
+            })
+          }
+          function listar(){
+        
+            Swal.fire({
+            title: "Listado de Productos en Sistema",
+            text: "1)Notebook Lenovo - Código: 300PK20 - Cantidad: 24.   2)Smartphone - Código: 230PK15 - Cantidad: 22.    3)Parlante HP - Código: 700PK18 - Cantidad: 12. ",
+            icon: "Success"
+            })
+          }
+        </script>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="adminBodega">Volver</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">Todos los productos</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#!">Items populares</a></li>
+                                <li><a class="dropdown-item" href="#!">Recientes</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Modificar</h1>
+                </div>
+            </div>
+        </header>
+                {% if producto %}
+                <h2>Formulario actualización de datos</h2><br>
+
+                <form action="{% url 'editProd' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <pre>NOMBRE:                 <input type="text" name="nombre" value="{{producto.name}}"></pre>
+                    <pre>SKU:        <input type="text" name="sku" value="{{producto.sku}}" readonly></pre>
+                    <pre>PRECIO:                <input type="text" name="precio" value="{{producto.precio}}"></pre>
+            
+                    <input type="submit" value="Actualizar" name="Actualizar">
+                </form><br>
+            {% endif %}
+
+            <div id="mensaje">
+                {% if mensaje %}
+                {{ mensaje }}
+                {% endif %}
+            </div>
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" 
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="js/scripts.js "></script>
+        
+    </body>
+</html>
